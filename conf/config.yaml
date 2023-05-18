@@ -1,0 +1,53 @@
+device: "cpu"
+src_lang: "en"
+tgt_lang: "de"
+task: "benchmark"
+
+model:
+  src_lang: ${src_lang}
+  tgt_lang: ${tgt_lang}
+  model_name: "Helsinki-NLP/opus-mt-${src_lang}-${tgt_lang}"
+  device: ${device}
+  use_logits_preprocessor: True
+
+dataset:
+  data_dir: ""
+  src_lang: ${src_lang}
+  tgt_lang: ${tgt_lang}
+  name: "wmt"
+  version: "14"
+  split: 'test'
+  subset:
+    use_subset: False
+    start: 10
+    end: 10
+
+bench:
+  result_dir: ""
+  n_runs: 1
+  device: ${device}
+
+beam_search:
+  result_dir: ""
+  batch_size: 1
+  num_beams: 15
+  device: ${device}
+
+initializer:
+  use_initializer: True
+  path_lexicon: null
+  use_init: False
+  src_lang: ${src_lang}
+  tgt_lang: ${tgt_lang}
+  device: ${device}
+
+decoder:
+  gs_jaco_blocks: 3
+  use_cache: True
+  # Specify the decoders to use
+  decoders: ['autoregressive', 'jacobi', 'gs_jacobi', 'h_jacobi', 'beam_search']
+  device: ${device}
+
+
+sample:
+  path: ""

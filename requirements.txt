@@ -1,0 +1,17 @@
+torch~=1.13.1
+transformers==4.19.2
+datasets==2.1.0
+matplotlib>=3.5.2
+pytorch-lightning==1.6.3
+nltk>=3.7
+sacrebleu==2.1.0
+tqdm>=4.64.0
+python-dotenv==0.20.0
+gitpython==3.1.27
+more-itertools==8.12.0
+hydra-core==1.2.0
+plotly>=5.8.2
+#sentencepiece==0.1.96
+sacremoses==0.0.49
+sentence-transformers
+kaleido==0.2.1
