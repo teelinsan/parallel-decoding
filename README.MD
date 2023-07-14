@@ -82,12 +82,22 @@ The output DDGviz visualization will be saved in `iteration_matrix/<dataset_hash
 If you use this code please cite:
 
 ```bibtex
-@misc{santilli2023accelerating,
-      title={Accelerating Transformer Inference for Translation via Parallel Decoding}, 
-      author={Andrea Santilli and Silvio Severino and Emilian Postolache and Valentino Maiorca and Michele Mancusi and Riccardo Marin and Emanuele Rodolà},
-      year={2023},
-      eprint={2305.10427},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@inproceedings{santilli-etal-2023-accelerating,
+    title = "Accelerating Transformer Inference for Translation via Parallel Decoding",
+    author = "Santilli, Andrea  and
+      Severino, Silvio  and
+      Postolache, Emilian  and
+      Maiorca, Valentino  and
+      Mancusi, Michele  and
+      Marin, Riccardo  and
+      Rodola, Emanuele",
+    booktitle = "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2023",
+    address = "Toronto, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.acl-long.689",
+    pages = "12336--12355",
+    abstract = "Autoregressive decoding limits the efficiency of transformers for Machine Translation (MT). The community proposed specific network architectures and learning-based methods to solve this issue, which are expensive and require changes to the MT model, trading inference speed at the cost of the translation quality. In this paper, we propose to address the problem from the point of view of decoding algorithms, as a less explored but rather compelling direction. We propose to reframe the standard greedy autoregressive decoding of MT with a parallel formulation leveraging Jacobi and Gauss-Seidel fixed-point iteration methods for fast inference.This formulation allows to speed up existing models without training or modifications while retaining translation quality. We present three parallel decoding algorithms and test them on different languages and models showing how the parallelization introduces a speedup up to 38{\%} w.r.t. the standard autoregressive decoding and nearly 2x when scaling the method on parallel resources. Finally, we introduce a decoding dependency graph visualizer (DDGviz) that let us see how the model has learned the conditional dependence between tokens and inspect the decoding procedure.",
 }
 ```
