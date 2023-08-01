@@ -3,7 +3,7 @@
 # Accelerating Transformer Inference for Translation via Parallel Decoding
 
 [![Paper](http://img.shields.io/badge/paper-ArXiv-B31B1B.svg)](https://arxiv.org/abs/2305.10427)
-[![Conference](http://img.shields.io/badge/ACL-2023-c92828.svg)]()
+[![Conference](http://img.shields.io/badge/ACL-2023-c92828.svg)](https://aclanthology.org/2023.acl-long.689/)
 
 </div>
 
