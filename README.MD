@@ -8,11 +8,13 @@
 </div>
 
 
-This is the code repository of the paper "Accelerating Transformer Inference for Translation via Parallel Decoding" accepted at ACL 2023 main conference.
+This is the code repository of the paper "Accelerating Transformer Inference for Translation via Parallel Decoding" accepted at [ACL 2023 main conference](https://aclanthology.org/2023.acl-long.689/).
 
-The paper proposes three Parallel Decoding methods to speedup existing autoregressive machine translation models.
+The paper proposes three Parallel Decoding methods to speed up existing autoregressive machine translation models: Jacobi Decoding, GS-Jacobi Decoding, and Hybrid GS-Jacobi Decoding.
 
-This code is not production ready and should be used just for research purposes.
+If you are looking for an implementation for speeding up LLMs take a look at [this repo](https://github.com/hao-ai-lab/LookaheadDecoding).
+
+This code is not production-ready and should be used just for research purposes.
 
 **Paper**: https://arxiv.org/abs/2305.10427
 
@@ -28,12 +30,12 @@ To produce the benchmark values for en-ro Wmt16, do:
     ```
     python3 main.py src_lang="en" tgt_lang="ro" device="cpu" dataset.name="wmt" dataset.version="16" task="benchmark" bench.result_dir="[your path]" model.model_name="Helsinki-NLP/opus-mt-en-ro"
     ```
-Iters speedup and BLEU results should be easy to reproduce. Time speedups depend on the availability of the underlying hardware and software to run computation in parallel without introducing overheads. Please follow the experimental setting proposed in the paper. The easiest way is to use a virgin virtual machine, we provide the instruction in the Scaling Experiments in this readme.
+Iters speedup and BLEU results should be easy to reproduce. Time speedups depend on the availability of the underlying hardware and software to run computation in parallel without introducing overheads. Please follow the experimental setting proposed in the paper. The easiest way is to use a virgin virtual machine, we provide the instructions in the Scaling Experiments in this readme.
 
 ## Datasets
-All the dataset are available via `HuggingFace` datasets, so they will be downloaded automatically.
+All the datasets are available via `HuggingFace` datasets, so they will be downloaded automatically.
 However, `Iwslt` needs to be downloaded manually. In particular, you have to download `2015-01/texts` for `Iwslt15` and `
-2017-01-trnted/texts` for `Iwslt17`. Once downloaded, you should specify the path as parameter in the python command, by adding `dataset.data_dir=[your path]` (it is possible also to modify it manually in `conf/config.yaml`).
+2017-01-trnted/texts` for `Iwslt17`. Once downloaded, you should specify the path as parameter in the Python command, by adding `dataset.data_dir=[your path]` (it is possible also to modify it manually in `conf/config.yaml`).
 
 ## Table 1 and Table 5 Experiments - Parallel Decoding Algorithms
 To reproduce results in Table 1 run the command.
@@ -98,6 +100,6 @@ If you use this code please cite:
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2023.acl-long.689",
     pages = "12336--12355",
-    abstract = "Autoregressive decoding limits the efficiency of transformers for Machine Translation (MT). The community proposed specific network architectures and learning-based methods to solve this issue, which are expensive and require changes to the MT model, trading inference speed at the cost of the translation quality. In this paper, we propose to address the problem from the point of view of decoding algorithms, as a less explored but rather compelling direction. We propose to reframe the standard greedy autoregressive decoding of MT with a parallel formulation leveraging Jacobi and Gauss-Seidel fixed-point iteration methods for fast inference.This formulation allows to speed up existing models without training or modifications while retaining translation quality. We present three parallel decoding algorithms and test them on different languages and models showing how the parallelization introduces a speedup up to 38{\%} w.r.t. the standard autoregressive decoding and nearly 2x when scaling the method on parallel resources. Finally, we introduce a decoding dependency graph visualizer (DDGviz) that let us see how the model has learned the conditional dependence between tokens and inspect the decoding procedure.",
+    abstract = "Autoregressive decoding limits the efficiency of transformers for Machine Translation (MT). The community proposed specific network architectures and learning-based methods to solve this issue, which are expensive and require changes to the MT model, trading inference speed at the cost of the translation quality. In this paper, we propose to address the problem from the point of view of decoding algorithms, as a less explored but rather compelling direction. We propose to reframe the standard greedy autoregressive decoding of MT with a parallel formulation leveraging Jacobi and Gauss-Seidel fixed-point iteration methods for fast inference. This formulation allows to speed up existing models without training or modifications while retaining translation quality. We present three parallel decoding algorithms and test them on different languages and models showing how the parallelization introduces a speedup up to 38{\%} w.r.t. the standard autoregressive decoding and nearly 2x when scaling the method on parallel resources. Finally, we introduce a decoding dependency graph visualizer (DDGviz) that let us see how the model has learned the conditional dependence between tokens and inspect the decoding procedure.",
 }
 ```
