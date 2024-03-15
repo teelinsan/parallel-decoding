@@ -10,9 +10,7 @@
 
 This is the code repository of the paper "Accelerating Transformer Inference for Translation via Parallel Decoding" accepted at [ACL 2023 main conference](https://aclanthology.org/2023.acl-long.689/).
 
-The paper proposes three Parallel Decoding methods to speed up existing autoregressive machine translation models: Jacobi Decoding, GS-Jacobi Decoding, and Hybrid GS-Jacobi Decoding.
-
-If you are looking for an implementation for speeding up LLMs take a look at [this repo](https://github.com/hao-ai-lab/LookaheadDecoding).
+The paper proposes three Parallel Decoding methods to speed up existing autoregressive machine translation models: **Jacobi Decoding**, **GS-Jacobi Decoding**, and **Hybrid GS-Jacobi Decoding**.
 
 This code is not production-ready and should be used just for research purposes.
 
